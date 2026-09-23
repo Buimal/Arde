@@ -1,0 +1,55 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  font-family: var(--font-open-sans), sans-serif;
+}
+
+@layer base {
+  :root {
+    --background: #000;
+    --foreground: #fafafa;
+    --middle-foreground: #e1e1e1;
+    --sub-foreground: #aaa;
+    --accent: #FF2D2D;
+    --scroll-element-foreground: #888;
+    --language-selector-list-bg: #0e0e0e;
+    --language-selector-center-line-bg: #222;
+    --language-selector-inactive-foreground: #646464;
+    --scrolbar-track-color: #262626;
+    --border-color: #1a1a1a;
+    --lightened-border-color: #202020;
+    --button-border-color: #242424;
+    --navbar-border-radius: 8px;
+    --button-border-radius: 8px;
+    --calendar-background: #000;
+    --inactive-floating-label-input-outline-color: #303030;
+    --floating-label-input-muted-foreground: #999;
+  }
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 12px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--scrolbar-track-color);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--accent);
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--accent);
+  opacity: 0.8; /* emulate 0.8 opacity on hover */
+}
+
+/* For Firefox */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: var(--accent) var(--scrolbar-track-color);
+}
