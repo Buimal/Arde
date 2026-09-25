@@ -3,6 +3,10 @@ import type { NextConfig } from 'next';
 const nextConfig: NextConfig = {
   // Enable static export output
   output: 'export',
+  
+  basePath: '/Arde',
+
+  trailingSlash: true,
 
   typescript: {
     ignoreBuildErrors: true,
