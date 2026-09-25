@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
+import { asset } from "@/lib/assets";
 
 interface NamerUiBadgeProps {
   href?: string;
@@ -52,7 +53,7 @@ export default function NamerUiBadge({
         }}
       >
         <img
-          src="/namer-ui-logo.png"
+          src={asset("/namer-ui-logo.png")}
           alt={namerUIName}
           width={32}
           height={32}

@@ -6,6 +6,7 @@ import { ShoppingBag, X } from "lucide-react";
 import { ModalOverlay } from "@/components/modal-overlay";
 import { useApp } from "@/context/app-context";
 import { useIsMobile } from "@/hooks/use-mobile";
+import { asset } from "@/lib/assets";
 
 export interface ProductInfo {
   id: string;
@@ -72,7 +73,7 @@ export default function ProductModal({
             <div className="relative w-full aspect-[4/3] overflow-hidden rounded-t-xl">
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img
-                src={product.image}
+                src={asset(product.image)}
                 alt={product.title}
                 className="w-full h-full object-cover"
               />

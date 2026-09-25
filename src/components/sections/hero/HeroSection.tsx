@@ -10,6 +10,7 @@ import { MorphingText } from "@/components/MorphingText";
 import { DisableableMorphText } from "./DisableableMorphText";
 import ButtonSection from "./ButtonSection";
 import { useApp, useTranslation } from "@/context/app-context";
+import { asset } from "@/lib/assets";
 
 interface HeroSectionProps {
   scrollContainerRef: React.RefObject<HTMLDivElement>;
@@ -311,7 +312,7 @@ export default function HeroSection({ scrollContainerRef, onButtonClick }: HeroS
                 <>
                   <div className="grid grid-cols-[auto_1fr] gap-x-5">
                     <img
-                      src="/LogoPrincipal.jpg"
+                      src={asset("/LogoPrincipal.jpg")}
                       alt="Logo Arde"
                       className="row-span-2 w-[min(3.6em,26vw)] self-stretch object-cover rounded-xl"
                     />
@@ -348,7 +349,7 @@ export default function HeroSection({ scrollContainerRef, onButtonClick }: HeroS
           >
             <img
               ref={imageRef}
-              src="/images/hero.webp"
+              src={asset("/images/hero.webp")}
               alt="Hero"
               className={clsx("w-full h-auto object-contain rounded-xl", isRTL && "scale-x-[-1]")}
             />
@@ -382,7 +383,7 @@ export default function HeroSection({ scrollContainerRef, onButtonClick }: HeroS
                 >
                   <div className="w-12 aspect-[3/4] overflow-hidden rounded-md flex-shrink-0">
                     <img
-                      src={r.image}
+                      src={asset(r.image)}
                       alt="Reviewer"
                       className={clsx(
                         "w-full h-full object-cover rounded-md",

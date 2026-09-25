@@ -12,6 +12,7 @@ import { FlameIcon } from "./FlameIcon";
 import { useApp } from "@/context/app-context";
 import NavCenter from "./Limelight";
 import { getLegacyBackdropStyle } from "./LegacyBackdrop";
+import { asset } from "@/lib/assets";
 
 export interface NavItem {
   id: string;
@@ -245,7 +246,7 @@ export default function Navbar({
           >
             {/* Logo */}
             <a
-              href="/"
+              href={asset("/")}
               onClick={(e) => {
                 e.preventDefault();
                 handleItemClick(0);

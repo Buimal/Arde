@@ -8,6 +8,7 @@ import SectionText from "@/components/SectionText";
 import RefinedChronicleButton from "@/components/RefinedChronicleButton";
 import { MessageCircle } from "lucide-react";
 import useMobileButtonHeight from "@/hooks/useMobileButtonHeight";
+import { asset } from "@/lib/assets";
 
 interface MobileAboutUsSectionProps {
   aboutUsImages?: string[];
@@ -79,7 +80,7 @@ const DicedGrid: React.FC<{
             }}
           >
             <img
-              src={img}
+              src={asset(img)}
               alt={`Image ${i + 1}`}
               style={{
                 width: "100%",
@@ -106,7 +107,7 @@ const DicedGrid: React.FC<{
         }}
       >
         <img
-          src="/images/about-us/1.webp"
+          src={asset("/images/about-us/1.webp")}
           alt="Single Image"
           style={{
             width: "100%",
@@ -155,7 +156,7 @@ const DicedGrid: React.FC<{
             }}
           >
             <img
-              src={image}
+              src={asset(image)}
               alt={`Image ${index + 1}`}
               className={`warped-image ${
                 ["bottom-right", "bottom-left", "top-right", "top-left"][index]

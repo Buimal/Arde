@@ -6,6 +6,7 @@ import { ArrowLeft, ArrowRight } from "lucide-react";
 import { useSwipeable } from "react-swipeable";
 import { useIsMobile } from "@/hooks/use-mobile";
 import useIsRTL from "@/hooks/useIsRTL";
+import { asset } from "@/lib/assets";
 
 export interface PagedTestimonialItem {
   id: string;
@@ -89,7 +90,7 @@ function TestimonialBox({
           style={{ width: imageSize, height: imageSize }}
         >
           <img
-            src={item.src}
+            src={asset(item.src)}
             alt={item.name}
             loading="lazy"
             decoding="async"

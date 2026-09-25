@@ -9,6 +9,7 @@ import { MobileDisableableMorphText as MobileDisableableMorphTextWithOptionalLin
 import ButtonSection from "./ButtonSection";
 import HeroCollage from "./HeroCollage";
 import useMobileButtonHeight from "@/hooks/useMobileButtonHeight";
+import { asset } from "@/lib/assets";
 
 interface MobileHeroSectionProps {
   onButtonClick?: (buttonKey: "schedule" | "explore") => void;
@@ -120,7 +121,7 @@ export default function MobileHeroSection({ onButtonClick }: MobileHeroSectionPr
         {/* Logo + title in a 2-row grid */}
         <div className="grid grid-cols-[auto_1fr] gap-x-3 mb-2">
           <img
-            src="/LogoPrincipal.jpg"
+            src={asset("/LogoPrincipal.jpg")}
             alt="Logo Arde"
             className="row-span-2 w-[min(3.4em,22vw)] self-stretch object-cover rounded-lg"
           />

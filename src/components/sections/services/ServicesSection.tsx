@@ -11,6 +11,7 @@ import LimitedWidthWrapper from "@/components/limited-width-wrapper";
 import RefinedChronicleButton from "@/components/RefinedChronicleButton";
 import useMobileButtonHeight from "@/hooks/useMobileButtonHeight";
 import "animate.css/animate.min.css";
+import { asset } from "@/lib/assets";
 
 interface ServicesSectionProps {
   id: string;
@@ -329,7 +330,7 @@ return (
         aria-hidden="true"
         className="background-image-container overflow-hidden pointer-events-none absolute z-0"
         style={{
-          backgroundImage: activeService ? `url(${activeService.imageUrl})` : "none",
+          backgroundImage: activeService ? `url(${asset(activeService.imageUrl)})`:"none",
           backgroundSize: "cover",
           backgroundRepeat: "no-repeat",
           backgroundPosition: "center center",

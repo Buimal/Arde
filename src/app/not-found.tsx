@@ -2,6 +2,7 @@
 import { Suspense, useEffect, useRef, useState } from "react";
 import { gsap } from "gsap";
 import { useRouter } from "next/navigation";
+import { asset } from "@/lib/assets";
 
 export default function NotFound() {
   const containerRef = useRef<HTMLDivElement>(null);
@@ -123,7 +124,7 @@ export default function NotFound() {
               <p className="subtitle">Página no encontrada</p>
               <a
                 className="back-link"
-                href="/"
+                href={asset("/")}
                 onClick={handleAnchorClick}
               >
                 Volver al inicio

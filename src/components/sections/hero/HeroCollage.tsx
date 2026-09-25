@@ -2,6 +2,7 @@
 import React, { useEffect, useRef, useState } from "react";
 import clsx from "clsx";
 import useIsRTL from "@/hooks/useIsRTL";
+import { asset } from "@/lib/assets";
 
 //
 // === Adjustable scaling config ===
@@ -140,7 +141,7 @@ const HeroCollage = React.forwardRef<HTMLDivElement, HeroCollageProps>(
               }}
             >
               <img
-                src={img.src}
+                src={asset(img.src)}
                 alt={`image-${idx}`}
                 className={clsx("w-full h-full object-cover", isRTL && img.mirrorForRTL ? "scale-x-[-1]" : "")}
               />
@@ -158,7 +159,7 @@ const HeroCollage = React.forwardRef<HTMLDivElement, HeroCollageProps>(
               }}
             >
               <img
-                src={img.src}
+                src={asset(img.src)}
                 alt={`image-${idx}`}
                 className={clsx("w-full h-full object-cover", isRTL && img.mirrorForRTL ? "scale-x-[-1]" : "")}
               />
@@ -176,7 +177,7 @@ const HeroCollage = React.forwardRef<HTMLDivElement, HeroCollageProps>(
               }}
             >
               <img
-                src={img.src}
+                src={asset(img.src)}
                 alt={`image-${idx}`}
                 className={clsx("w-full h-full object-cover", isRTL && img.mirrorForRTL ? "scale-x-[-1]" : "")}
               />
@@ -194,7 +195,7 @@ const HeroCollage = React.forwardRef<HTMLDivElement, HeroCollageProps>(
               }}
             >
               <img
-                src={img.src}
+                src={asset(img.src)}
                 alt={`image-${idx}`}
                 className={clsx("w-full h-full object-cover", isRTL && img.mirrorForRTL ? "scale-x-[-1]" : "")}
               />
@@ -214,7 +215,7 @@ const HeroCollage = React.forwardRef<HTMLDivElement, HeroCollageProps>(
               }}
             >
               <img
-                src={img.src}
+                src={asset(img.src)}
                 alt={`image-${idx}`}
                 className={clsx("w-full h-full object-cover", isRTL && img.mirrorForRTL ? "scale-x-[-1]" : "")}
               />
@@ -255,7 +256,7 @@ const HeroCollage = React.forwardRef<HTMLDivElement, HeroCollageProps>(
         >
           <div className="w-12 aspect-[3/4] overflow-hidden rounded-md flex-shrink-0">
             <img
-              src={r.image}
+              src={asset(r.image)}
               alt={`reviewer-${idx}`}
               className={clsx(
                 "w-full h-full object-cover rounded-md",

@@ -5,6 +5,7 @@ import useIsRTL from "@/hooks/useIsRTL";
 import { useIsMobile } from "@/hooks/use-mobile";
 import SectionText from "@/components/SectionText";
 import PagedTestimonials from "@/components/PagedTestimonials";
+import { asset } from "@/lib/assets";
 
 function useMirroredImage(src: string, mirror: boolean) {
   const [mirroredSrc, setMirroredSrc] = useState<string>(src);
@@ -44,7 +45,7 @@ export default function TestimonialsSection() {
   const sectionRef = useRef<HTMLElement>(null);
 
   const taliaMirroredImage = useMirroredImage(
-    "/images/testimonials/talia-lewin.webp",
+    asset("/images/testimonials/talia-lewin.webp"),
     isRTL
   );
 

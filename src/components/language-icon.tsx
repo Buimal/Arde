@@ -1,4 +1,5 @@
 import React from 'react';
+import { asset } from "@/lib/assets";
 
 interface LanguageIconProps {
   width?: number; // Width of the square container
@@ -33,7 +34,7 @@ const LanguageIcon: React.FC<LanguageIconProps> = ({ width = 26 }) => {
         }}
       >
         <image
-          href="/LanguageIcon.png" // Path to the PNG file
+          href={asset("/LanguageIcon.png")} // Path to the PNG file
           width="356"
           height="182"
           preserveAspectRatio="xMidYMid meet" // Maintain aspect ratio and center in SVG

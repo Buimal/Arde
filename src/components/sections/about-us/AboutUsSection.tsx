@@ -6,6 +6,7 @@ import { useTranslation } from "@/context/app-context";
 import RefinedChronicleButton from "@/components/RefinedChronicleButton";
 import { MessageCircle } from "lucide-react";
 import useMobileButtonHeight from "@/hooks/useMobileButtonHeight";
+import { asset } from "@/lib/assets";
 
 interface AboutUsSectionProps {
   onButtonClick?: (buttonKey: "schedule" | "explore") => void;
@@ -42,7 +43,7 @@ const DicedGrid: React.FC<{ images: string[]; containerHeight: number }> = ({ im
           }}
         >
           <img
-            src={image}
+            src={asset(image)}
             alt={`Image ${index + 1}`}
             className={`warped-image ${
               ["bottom-right", "bottom-left", "top-right", "top-left"][index]

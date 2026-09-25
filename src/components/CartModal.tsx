@@ -6,6 +6,7 @@ import { Check, Copy, Mail, MessageCircle, Minus, Plus, ShoppingBag, Trash2, X }
 import { ModalOverlay } from "@/components/modal-overlay";
 import { useApp } from "@/context/app-context";
 import { useIsMobile } from "@/hooks/use-mobile";
+import { asset } from "@/lib/assets";
 
 interface CartModalProps {
   isOpen: boolean;
@@ -100,7 +101,7 @@ export default function CartModal({ isOpen, onClose }: CartModalProps) {
                           <div className="w-12 h-12 shrink-0 overflow-hidden rounded-md">
                             {/* eslint-disable-next-line @next/next/no-img-element */}
                             <img
-                              src={line.image}
+                              src={asset(line.image)}
                               alt={line.title}
                               className="w-full h-full object-cover"
                             />

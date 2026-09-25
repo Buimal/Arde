@@ -96,6 +96,25 @@ npm run build    # build con export estático en /out
 
 El proyecto usa `output: 'export'`, por lo que `next build` genera un sitio 100 % estático en `out/` que puede servirse con cualquier servidor estático.
 
+### Rutas de assets y basePath: raíz vs. GitHub Pages
+
+El build de exportación es **estático**: el prefijo de las rutas (basePath) se graba en `out/` **al compilar** y no se decide en el navegador. Por esto, un mismo `out/` sirve para **un solo destino**. El prefijo lo controla la variable `NEXT_PUBLIC_BASE_PATH`:
+
+- **Sin la variable (default) → build para la raíz.** Sirve para desarrollo local y para cualquier hosting (Netlify, Vercel, cPanel, nginx, etc.): las imágenes y enlaces se generan como `/images/...` y el contenido de `out/` se sube tal cual a la raíz del sitio.
+- **Con `NEXT_PUBLIC_BASE_PATH=/Arde` → build para GitHub Pages** (sitio de proyecto en `<usuario>.github.io/Arde/`): las rutas se generan prefijadas como `/Arde/images/...`.
+
+GitHub Pages es el único destino que necesita el prefijo, y por eso es el único que lo configura de forma visible en `.github/workflows/deploy.yml` (paso "Build Next.js"). No hace falta ningún archivo `.env` en local.
+
+Comandos útiles:
+
+```bash
+npm run dev                        # local en http://localhost:3000/ (raíz)
+npm run build                      # out/ para la raíz (local u otro hosting)
+NEXT_PUBLIC_BASE_PATH=/Arde npm run build   # out/ para GitHub Pages
+```
+
+Todas las URLs de imágenes del sitio pasan por la función `asset()` de `src/lib/assets.ts`, que antepone `NEXT_PUBLIC_BASE_PATH` a las rutas locales (ignora URLs externas y datos `data:`). Si agregas una imagen nueva, usa `asset("/ruta/al/asset")` como `src` para que funcione en ambos destinos.
+
 ## Créditos
 
 El proyecto hereda componentes y diseño de las siguientes fuentes:

@@ -2,6 +2,7 @@
 
 import React, { useState, useRef } from "react";
 import Image from "next/image";
+import { asset } from "@/lib/assets";
 
 interface BackdropOptions {
   supportsBackdropFilter: boolean;
@@ -248,7 +249,7 @@ const InflectedCard: React.FC<InflectedCardProps> = ({
                 mediaNode
               ) : (
                 <Image
-                  src={image || ""}
+                  src={asset(image || "")}
                   alt={title}
                   fill
                   style={{
