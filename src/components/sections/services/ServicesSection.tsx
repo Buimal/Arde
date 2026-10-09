@@ -245,8 +245,8 @@ export default function ServicesSection({
     if ((service as any)["price-en"] != null) return (service as any)["price-en"];
   }
   function formatPrice(lang: string, symbol: string, price: number) {
-    if (lang === "it") return `${price} ${symbol}`;
-    return `${symbol}${price}`;
+    if (lang === "it") return `${price.toLocaleString("es-CO")} ${symbol}`;
+    return `${symbol}${price.toLocaleString("es-CO")}`;
   }
   function getDurationUnit() {
     return t("duration_unit");

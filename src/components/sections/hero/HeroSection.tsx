@@ -35,6 +35,15 @@ interface Review {
 
 const HEBREW_SWAP_THRESHOLD = 1336;
 
+const TESTIMONIAL_IMAGE_BY_GENDER: Record<string, string> = {
+  H: "/images/testimonials/Men.webp",
+  M: "/images/testimonials/Women.webp",
+};
+
+function testimonialImage(gender: string) {
+  return TESTIMONIAL_IMAGE_BY_GENDER[gender] ?? TESTIMONIAL_IMAGE_BY_GENDER.M;
+}
+
 export default function HeroSection({ scrollContainerRef, onButtonClick }: HeroSectionProps) {
   const isRTL = useIsRTL();
   const imageRef = useRef<HTMLImageElement>(null);
@@ -123,15 +132,15 @@ export default function HeroSection({ scrollContainerRef, onButtonClick }: HeroS
 
   // Reviews localized
   const baseReviewsLTR: Review[] = [
-    { name: t("testimonial_1_name"), rating: t("testimonial_1_rating"), pos: { top: "15%", left: "-90px" }, anim: "float-left 6s ease-in-out infinite", image: "/images/testimonials/naomi-bright.webp" },
-    { name: t("testimonial_2_name"), rating: t("testimonial_2_rating"), pos: { top: "45%", right: "-100px" }, anim: "float-right 8s ease-in-out infinite", image: "/images/testimonials/talia-lewin.webp" },
-    { name: t("testimonial_3_name"), rating: t("testimonial_3_rating"), pos: { bottom: "15%", left: "-95px" }, anim: "float-slow 10s ease-in-out infinite", image: "/images/testimonials/hannah-miller.webp" },
+    { name: t("testimonial_1_name"), rating: t("testimonial_1_rating"), pos: { top: "15%", left: "-90px" }, anim: "float-left 6s ease-in-out infinite", image: testimonialImage(t("testimonial_1_designation")) },
+    { name: t("testimonial_2_name"), rating: t("testimonial_2_rating"), pos: { top: "45%", right: "-100px" }, anim: "float-right 8s ease-in-out infinite", image: testimonialImage(t("testimonial_2_designation")) },
+    { name: t("testimonial_3_name"), rating: t("testimonial_3_rating"), pos: { bottom: "15%", left: "-95px" }, anim: "float-slow 10s ease-in-out infinite", image: testimonialImage(t("testimonial_3_designation")) },
   ];
 
   const baseReviewsRTL: Review[] = [
-    { name: t("testimonial_1_name"), rating: t("testimonial_1_rating"), pos: { top: "15%", right: "-90px" }, anim: "float-right 6s ease-in-out infinite", image: "/images/testimonials/naomi-bright.webp" },
-    { name: t("testimonial_2_name"), rating: t("testimonial_2_rating"), pos: { top: "45%", left: "-100px" }, anim: "float-left 8s ease-in-out infinite", image: "/images/testimonials/talia-lewin.webp", mirror: true },
-    { name: t("testimonial_3_name"), rating: t("testimonial_3_rating"), pos: { bottom: "15%", right: "-95px" }, anim: "float-slow 10s ease-in-out infinite", image: "/images/testimonials/hannah-miller.webp" },
+    { name: t("testimonial_1_name"), rating: t("testimonial_1_rating"), pos: { top: "15%", right: "-90px" }, anim: "float-right 6s ease-in-out infinite", image: testimonialImage(t("testimonial_1_designation")) },
+    { name: t("testimonial_2_name"), rating: t("testimonial_2_rating"), pos: { top: "45%", left: "-100px" }, anim: "float-left 8s ease-in-out infinite", image: testimonialImage(t("testimonial_2_designation")), mirror: true },
+    { name: t("testimonial_3_name"), rating: t("testimonial_3_rating"), pos: { bottom: "15%", right: "-95px" }, anim: "float-slow 10s ease-in-out infinite", image: testimonialImage(t("testimonial_3_designation")) },
   ];
 
   let reviews = isRTL ? baseReviewsRTL : baseReviewsLTR;

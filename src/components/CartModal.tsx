@@ -13,7 +13,8 @@ interface CartModalProps {
   onClose: () => void;
 }
 
-const parsePrice = (price: string) => parseFloat(price.replace(/[^\d.]/g, "")) || 0;
+const parsePrice = (price: string) => parseFloat(price.replace(/[^\d]/g, "")) || 0;
+const formatMoney = (value: number) => `$${value.toLocaleString("es-CO", { maximumFractionDigits: 0 })}`;
 
 export default function CartModal({ isOpen, onClose }: CartModalProps) {
   const { cart, cartCount, setCartQty, clearCart } = useApp();
@@ -21,7 +22,7 @@ export default function CartModal({ isOpen, onClose }: CartModalProps) {
   const [copied, setCopied] = useState(false);
 
   const total = cart.reduce((sum, line) => sum + parsePrice(line.price) * line.qty, 0);
-  const totalText = `$${total.toLocaleString("es-CO", { maximumFractionDigits: 0 })}`;
+  const totalText = formatMoney(total);
 
   const orderItemsText = cart
     .map((line) => `${line.qty}× ${line.title} (${line.price})`)
@@ -114,7 +115,7 @@ export default function CartModal({ isOpen, onClose }: CartModalProps) {
                             {line.title}
                           </p>
                           <p className="text-xs text-[var(--sub-foreground)]">
-                            {line.price} × {line.qty} = ${line.qty * parsePrice(line.price)}
+                            {line.price} × {line.qty} = {formatMoney(line.qty * parsePrice(line.price))}
                           </p>
                         </div>
                         <div className="flex items-center gap-1 shrink-0">

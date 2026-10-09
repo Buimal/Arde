@@ -193,7 +193,7 @@ export const PRODUCTS: Product[] = [
     "volume": "15 ml",
     "price": 30000,
     "imageUrl": "/images/products/retardantesenintimo.webp",
-    "featured": false
+    "featured": true
   },
   {
     "id": "retardante-spray-flavor-sex",
@@ -263,7 +263,7 @@ export const PRODUCTS: Product[] = [
     "volume": "1 Caja",
     "price": 18000,
     "imageUrl": "/images/products/ropainteriorgomita_cereza.webp",
-    "featured": false
+    "featured": true
   },
   {
     "id": "ropa-interior-gomita-chocolate",
@@ -283,7 +283,7 @@ export const PRODUCTS: Product[] = [
     "volume": "30 ml",
     "price": 35200,
     "imageUrl": "/images/products/senintimolychee.webp",
-    "featured": false
+    "featured": true
   },
   {
     "id": "vela-de-masaje-flavor-sex-cereza",
@@ -293,7 +293,7 @@ export const PRODUCTS: Product[] = [
     "volume": "50 g",
     "price": 23400,
     "imageUrl": "/images/products/vela_cereza.webp",
-    "featured": false
+    "featured": true
   },
   {
     "id": "vela-de-masaje-flavor-sex-chocolate",
@@ -313,7 +313,7 @@ export const PRODUCTS: Product[] = [
     "volume": "30 ml",
     "price": 16000,
     "imageUrl": "/images/products/aceiteguiacereza.webp",
-    "featured": false
+    "featured": true
   },
   {
     "id": "lubricante-durex-cosquillas",
@@ -366,5 +366,5 @@ export function getProducts(onlyFeatured = false): Product[] {
 }
 
 export function formatCurrency(price: number, symbol = "$"): string {
-  return `${symbol}${price}`;
+  return `${symbol}${price.toLocaleString("es-CO")}`;
 }

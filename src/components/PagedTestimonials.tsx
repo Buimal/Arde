@@ -12,7 +12,6 @@ export interface PagedTestimonialItem {
   id: string;
   quote: string;
   name: string;
-  designation: string;
   rating: string;
   src: string;
   mirrorImage?: boolean;
@@ -20,7 +19,6 @@ export interface PagedTestimonialItem {
 
 interface Colors {
   name?: string;
-  designation?: string;
   testimony?: string;
   cardBackground?: string;
   cardBorder?: string;
@@ -37,7 +35,6 @@ interface PagedTestimonialsProps {
   autoplayInterval?: number;
   colors?: Colors;
   nameFontSize?: string;
-  designationFontSize?: string;
   ratingFontSize?: string;
   quoteFontSize?: string;
   imageSize?: string;
@@ -69,9 +66,9 @@ function TestimonialBox({
   imageSize,
 }: {
   item: PagedTestimonialItem;
-  colors: Required<Pick<Colors, "name" | "designation" | "testimony">> &
+  colors: Required<Pick<Colors, "name" | "testimony">> &
     Partial<Colors>;
-  fontSizes: { name: string; designation: string; rating: string; quote: string };
+  fontSizes: { name: string; rating: string; quote: string };
   imageSize: string;
 }) {
 
@@ -107,12 +104,6 @@ function TestimonialBox({
             {item.name}
           </span>
           <span
-            className="mt-0.5 truncate"
-            style={{ color: colors.designation, fontSize: fontSizes.designation }}
-          >
-            {item.designation}
-          </span>
-          <span
             className="flex items-center gap-1 font-bold mt-1"
             style={{ color: "var(--accent)", fontSize: fontSizes.rating }}
           >
@@ -138,7 +129,6 @@ export function PagedTestimonials({
   autoplayInterval = 5000,
   colors = {},
   nameFontSize = "1.125rem",
-  designationFontSize = "0.875rem",
   ratingFontSize = "0.875rem",
   quoteFontSize = "0.95rem",
   imageSize = "56px",
@@ -210,7 +200,6 @@ export function PagedTestimonials({
   });
 
   const colorName = colors.name ?? "var(--foreground)";
-  const colorDesignation = colors.designation ?? "var(--sub-foreground)";
   const colorTestimony = colors.testimony ?? "var(--middle-foreground)";
   const colorArrowBg = colors.arrowBackground ?? "var(--foreground)";
   const colorArrowHoverBg = colors.arrowHoverBackground ?? "var(--accent)";
@@ -219,7 +208,6 @@ export function PagedTestimonials({
 
   const boxFontSizes = {
     name: nameFontSize,
-    designation: designationFontSize,
     rating: ratingFontSize,
     quote: quoteFontSize,
   };
@@ -266,7 +254,6 @@ export function PagedTestimonials({
                 item={item}
                 colors={{
                   name: colorName,
-                  designation: colorDesignation,
                   testimony: colorTestimony,
                   cardBackground: colors.cardBackground,
                   cardBorder: colors.cardBorder,

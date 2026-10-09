@@ -15,6 +15,15 @@ interface MobileHeroSectionProps {
   onButtonClick?: (buttonKey: "schedule" | "explore") => void;
 }
 
+const TESTIMONIAL_IMAGE_BY_GENDER: Record<string, string> = {
+  H: "/images/testimonials/Men.webp",
+  M: "/images/testimonials/Women.webp",
+};
+
+function testimonialImage(gender: string) {
+  return TESTIMONIAL_IMAGE_BY_GENDER[gender] ?? TESTIMONIAL_IMAGE_BY_GENDER.M;
+}
+
 export default function MobileHeroSection({ onButtonClick }: MobileHeroSectionProps) {
   const isRTL = useIsRTL();
   const sectionRef = useRef<HTMLElement>(null);
@@ -246,7 +255,7 @@ export default function MobileHeroSection({ onButtonClick }: MobileHeroSectionPr
               pos: { top: "7%", left: "5%" },
               animDelay: "0s",
               animDuration: "2.76s",
-              image: "/images/testimonials/naomi-bright.webp",
+              image: testimonialImage(t("testimonial_1_designation")),
             },
             {
               name: t("testimonial_2_name"),
@@ -254,7 +263,7 @@ export default function MobileHeroSection({ onButtonClick }: MobileHeroSectionPr
               pos: { top: "32%", right: "8%" },
               animDelay: "-1.4s",
               animDuration: "5.4s",
-              image: "/images/testimonials/talia-lewin.webp",
+              image: testimonialImage(t("testimonial_2_designation")),
               mirrorForRTL: true,
             },
             {
@@ -263,7 +272,7 @@ export default function MobileHeroSection({ onButtonClick }: MobileHeroSectionPr
               pos: { bottom: "12%", left: "20%" },
               animDelay: "-2.7s",
               animDuration: "7s",
-              image: "/images/testimonials/hannah-miller.webp",
+              image: testimonialImage(t("testimonial_3_designation")),
             },
           ]}
         />
